@@ -2,8 +2,9 @@ package com.safetyNet.safetyNetAlert;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 
-//@JsonFilter("monFiltreDynamique")
-public class SafetyNetPersonsModel {
+import java.util.List;
+
+public class Persons {
 
     private String lastName;
     private String firstName;
@@ -13,10 +14,18 @@ public class SafetyNetPersonsModel {
     private String phone;
     private String email;
 
-
-public SafetyNetPersonsModel(){
+public Persons(){
 
 }
+    public Persons (String firstName, String lastName, String address, String city, int zip, String phone, String email){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.zip = zip;
+        this.phone = phone;
+        this.email = email;
+    };
 
     public String getLastName() {
         return lastName;
@@ -29,8 +38,6 @@ public SafetyNetPersonsModel(){
     public String getFirstName() {
         return firstName;
     }
-    //  public Persons(String lastName,String firstName, String address,  )
-
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -83,12 +90,11 @@ public SafetyNetPersonsModel(){
                 ", firstName='" + firstName + '\'' +
                ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
-               ", zip=" + zip +'\'' +
+               ", zip='" + zip +'\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }
-
 
 
 }

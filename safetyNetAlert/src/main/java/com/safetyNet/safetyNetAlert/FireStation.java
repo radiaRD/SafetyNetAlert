@@ -3,12 +3,16 @@ package com.safetyNet.safetyNetAlert;
 import com.fasterxml.jackson.annotation.JsonFilter;
 
 //@JsonFilter("monFiltreDynamique")
-public class SafetyNetFireStationModel {
+public class FireStation {
     private String address;
     private int station;
 
-    public SafetyNetFireStationModel() {
+    public FireStation() {
+    }
 
+    public FireStation(String address, int station) {
+        this.address = address;
+        this.station = station;
     }
     public String getAddress() {
       return address;

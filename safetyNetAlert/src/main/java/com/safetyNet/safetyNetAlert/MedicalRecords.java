@@ -1,18 +1,35 @@
 package com.safetyNet.safetyNetAlert;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
+import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
-//@JsonFilter("monFiltreDynamique")
-public class SafetyNetMedicalRecordsModel {
+
+public class MedicalRecords {
+
     private String lastName;
     private String firstName;
     private String birthdate;
     private List allergies;
     private List medications;
 
-    public SafetyNetMedicalRecordsModel() {
+
+
+    public MedicalRecords() {
     }
+
+    public MedicalRecords(String lastName, String firstName, String birthdate,List allergies, List medications )  {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.birthdate = birthdate;
+        this.allergies = allergies;
+        this.medications = medications;
+    }
+
     public String getLastName(){
         return lastName;
     }
@@ -53,14 +70,17 @@ public class SafetyNetMedicalRecordsModel {
         this.medications =  medications;
     }
 
+
+
     @Override
     public String toString() {
         return "SafetyNetMedicalRecordsModel{" +
                 "lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", birthdate=" + birthdate +
-                ", allergies='" + allergies + '\'' +
-                ", medications='" + medications + '\'' +
-                '}';
-    }
+            ", firstName='" + firstName + '\'' +
+            ", birthdate=" + birthdate +
+            ", allergies='" + allergies + '\'' +
+            ", medications='" + medications + '\'' +
+            '}';
+}
+
 }

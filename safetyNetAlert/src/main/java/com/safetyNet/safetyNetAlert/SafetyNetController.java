@@ -1,105 +1,125 @@
 package com.safetyNet.safetyNetAlert;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ser.FilterProvider;
-import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
-import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
-import com.jsoniter.JsonIterator;
-import org.apache.catalina.connector.Response;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.springframework.http.converter.json.MappingJacksonValue;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
-import javax.ws.rs.GET;
-import javax.ws.rs.Produces;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+
+
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
-import static org.apache.el.util.MessageFactory.get;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 
 @RestController
 public class SafetyNetController {
 
+    private List<Persons> persons;
+    private List<FireStation> firestations;
+    private List<MedicalRecords> medicalRecords;
+
+    public SafetyNetController() {
+    }
+
+    @Autowired
+    public SafetyNetController(List<Persons> persons) {
+        this.persons = persons;
+    }
+
+
     @RequestMapping(value = "/persons", method = RequestMethod.GET)
-    public ListIterator readJsonFilePersons() throws IOException, ParseException {
-        readDataFromJsonFile data = new  readDataFromJsonFile();
-        JSONParser parser = new JSONParser();
-        Object obj = parser.parse( data.readJsonFileData());
-        JSONObject jsonObject = (JSONObject) obj;
-        ObjectMapper mapper = new ObjectMapper();
-        JSONArray Listpersons = (JSONArray) jsonObject.get("persons");
-        ListIterator iterator = Listpersons.listIterator();
-        while (iterator.hasNext()) {
-           iterator.set(mapper.readValue(iterator.next().toString(), SafetyNetPersonsModel.class));
-        }
-        return Listpersons.listIterator();
+    @ResponseBody
+    public List<Persons> getPersons() throws IOException, ParseException {
+        SafetyNetData persons = new SafetyNetData();
+        return persons.readJsonFilePersons();
     }
 
-    @RequestMapping(value = "/fireStations", method = RequestMethod.GET)
-    public ListIterator readJsonFileStation() throws IOException, ParseException {
-        readDataFromJsonFile data = new  readDataFromJsonFile();
-        JSONParser parser = new JSONParser();
-        Object obj = parser.parse( data.readJsonFileData());
-        JSONObject jsonObject = (JSONObject) obj;
-        JSONArray ListStations = (JSONArray) jsonObject.get("firestations");
-        ObjectMapper mapper = new ObjectMapper();
-        ListIterator iterator = ListStations.listIterator();
-        while (iterator.hasNext()) {
-            iterator.set(mapper.readValue(iterator.next().toString(), SafetyNetFireStationModel.class));
+    @RequestMapping(value = "/fireStation", method = GET)
+    @ResponseBody
+    public List<FireStation> getFirestations() throws IOException, ParseException {
+        SafetyNetData firestations = new SafetyNetData();
+        return firestations.readJsonFileStation();
+    }
 
-        }
-        return ListStations.listIterator();
+    @RequestMapping(value = "/medicalRecords", method = GET)
+    @ResponseBody
+    public List<MedicalRecords> getMedicalRecords() throws IOException, ParseException {
+        SafetyNetData medicalRecords = new SafetyNetData();
+        return medicalRecords.readJsonFileMedicalrecords();
     }
 
 
-    @RequestMapping(value = "/medicalRecords", method = RequestMethod.GET)
-    public ListIterator readJsonFileMedicalrecords() throws IOException, ParseException {
-        readDataFromJsonFile data = new  readDataFromJsonFile();
-        JSONParser parser = new JSONParser();
-        Object obj = parser.parse(data.readJsonFileData());
-        JSONObject jsonObject = (JSONObject) obj;
-        JSONArray ListMedical = (JSONArray) jsonObject.get("medicalrecords");
-        ObjectMapper mapper = new ObjectMapper();
-        ListIterator iterator = ListMedical.listIterator();
-        while (iterator.hasNext()) {
-           iterator.set(mapper.readValue(iterator.next().toString(), SafetyNetMedicalRecordsModel.class));
+    @RequestMapping(value = "/fireStation/{station}", method = GET)
+    @ResponseBody
+    public List<UserDTO> getUserByStationNumber(@PathVariable int station) throws IOException, ParseException {
+        // on recupere les firestations
+        SafetyNetData firestations = new SafetyNetData();
+        List<FireStation> fireStations = firestations.readJsonFileStation();
 
-        }
-        return ListMedical.listIterator();
+        List<FireStation> fireStation2 = fireStations.stream()    // converting the list to stream
+                .filter(f -> f.getStation() == station)   // filter the stream to create a new stream
+                .collect(Collectors.toList());  // collect the final stream and convert it to a List}
+        Set<String> fireStation3 =
+                fireStation2.stream()
+                        .map(FireStation::getAddress)
+                        .collect(Collectors.toSet());
+        List<Persons> persons = getPersons();
+        List<Persons> resultOut = persons.stream()
+                .filter(e -> fireStation3.contains(e.getAddress()))
+                .collect(Collectors.toList());
+
+
+        ModelMapper modelMapper = new ModelMapper();
+        List<UserDTO> user = Arrays.asList(modelMapper.map(resultOut, UserDTO[].class));
+
+        return user;
+
     }
 
-//filtrer les données pour obtenir les email de tous les habitants de la ville
-@RequestMapping(value = "/email", method = RequestMethod.GET)
-public MappingJacksonValue communityEmail() throws IOException, ParseException {
-    readDataFromJsonFile data = new  readDataFromJsonFile();
-    JSONParser parser = new JSONParser();
-    Object obj = parser.parse(data.readJsonFileData());
-    JSONObject jsonObject = (JSONObject) obj;
-    JSONArray Listpersons = (JSONArray) jsonObject.get("persons");
-    ObjectMapper mapper = new ObjectMapper();
-    ListIterator iterator = Listpersons.listIterator();
-    while (iterator.hasNext()) {
-        iterator.set(mapper.readValue(iterator.next().toString(), SafetyNetPersonsModel.class));
+    @RequestMapping(value = "/communityEmail/{city}", method = GET)
+    @ResponseBody
+    public Set<String> getEmailByCity(@PathVariable("city") String city) throws IOException, ParseException {
+        List<Persons> persons = getPersons();
+        List<Persons> persons1 = persons.stream()
+                .filter(f -> f.getCity().equals(city))   // filter the stream to create a new stream
+                .collect(Collectors.toList());
+        Set<String> emailPerson =
+                persons1.stream()
+                        .map(Persons::getEmail)
+                        .collect(Collectors.toSet());
+        return emailPerson;
     }
 
-    SimpleBeanPropertyFilter monFiltre = SimpleBeanPropertyFilter.filterOutAllExcept("email");
 
-    FilterProvider listDeNosFiltres = new SimpleFilterProvider().addFilter("monFiltreDynamique", monFiltre);
+    @RequestMapping(value = "/phoneAlert/{station}", method = GET)
+    @ResponseBody
+    public Set<String> getPhoneNumberByStation(@PathVariable int station) throws IOException, ParseException {
+        // on recupere les firestations
+        SafetyNetData firestations = new SafetyNetData();
+        List<FireStation> fireStations = firestations.readJsonFileStation();
 
-    MappingJacksonValue personFiltres = new MappingJacksonValue(Listpersons.listIterator());
+        List<FireStation> fireStation2 = fireStations.stream()    // converting the list to stream
+                .filter(f -> f.getStation() == station)   // filter the stream to create a new stream
+                .collect(Collectors.toList());  // collect the final stream and convert it to a List}
+        Set<String> fireStation3 =
+                fireStation2.stream()
+                        .map(FireStation::getAddress)
+                        .collect(Collectors.toSet());
+        List<Persons> persons = getPersons();
+        List<Persons> resultOut = persons.stream()
+                .filter(e -> fireStation3.contains(e.getAddress()))
+                .collect(Collectors.toList());
+        Set<String> phoneNumber =
+                resultOut.stream()
+                        .map(Persons::getPhone)
+                        .collect(Collectors.toSet());
 
-    personFiltres.setFilters(listDeNosFiltres);
+        return phoneNumber;
+    }
 
-    return personFiltres;
+
 }
-
-}
-
 
