@@ -1,8 +1,5 @@
-package com.safetyNet.safetyNetAlert;
+package com.safetyNet.safetyNetAlert.model;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
-
-import java.util.List;
 
 public class Persons {
 
@@ -13,11 +10,14 @@ public class Persons {
     private int zip;
     private String phone;
     private String email;
+    private FireStation station;
+    private MedicalRecords medicalRecords;
 
-public Persons(){
+    public Persons() {
 
-}
-    public Persons (String firstName, String lastName, String address, String city, int zip, String phone, String email){
+    }
+
+    public Persons(String firstName, String lastName, String address, String city, int zip, String phone, String email, FireStation station, MedicalRecords medicalRecords) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -25,7 +25,11 @@ public Persons(){
         this.zip = zip;
         this.phone = phone;
         this.email = email;
-    };
+        this.station = station;
+        this.medicalRecords = medicalRecords;
+
+    }
+
 
     public String getLastName() {
         return lastName;
@@ -83,18 +87,45 @@ public Persons(){
         this.phone = phone;
     }
 
+    public void setStation(FireStation station) {
+        this.station = station;
+    }
+
+    public FireStation getStation() {
+        return station;
+    }
+
+    public MedicalRecords getMedicalRecords() {
+        return medicalRecords;
+    }
+
+    public void setMedicalRecords(MedicalRecords medicalRecords) {
+        this.medicalRecords = medicalRecords;
+    }
+
+    public void updatepersonsexceptFirstNameLastName(String address, String city, int zip, String phone, String email, FireStation station, MedicalRecords medicalRecords) {
+        this.address = address;
+        this.city = city;
+        this.zip = zip;
+        this.phone = phone;
+        this.email = email;
+        this.station = station;
+        this.medicalRecords = medicalRecords;
+    }
+
     @Override
     public String toString() {
         return "{" +
-               " lastName='" + lastName + '\'' +
+                " lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
-               ", address='" + address + '\'' +
+                ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
-               ", zip='" + zip +'\'' +
+                ", zip='" + zip + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
+                ", medicalRecords='" + medicalRecords + '\'' +
+                ", station='" + station + '\'' +
                 '}';
     }
-
 
 }

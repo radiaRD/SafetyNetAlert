@@ -42,11 +42,7 @@
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-server</artifactId>
 		</dependency>
-<dependency>
-    <groupId>com.jsoniter</groupId>
-    <artifactId>jsoniter</artifactId>
-    <version>0.9.23</version>
-</dependency>
+
 		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>

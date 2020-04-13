@@ -1,5 +1,12 @@
-package com.safetyNet.safetyNetAlert;
+package com.safetyNet.safetyNetAlert.dto;
 
+
+import com.safetyNet.safetyNetAlert.model.Persons;
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserDTO {
     private String lastName;
@@ -7,8 +14,11 @@ public class UserDTO {
     private String address;
     private String phone;
 
+
     public UserDTO() {
     }
+
+
 
     public UserDTO(String firstName, String lastName, String address, String phone) {
         this.firstName = firstName;
@@ -49,6 +59,8 @@ public class UserDTO {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+
 
     @Override
     public String toString() {
