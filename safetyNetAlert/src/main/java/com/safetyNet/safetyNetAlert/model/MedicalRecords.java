@@ -1,13 +1,13 @@
 package com.safetyNet.safetyNetAlert.model;
 
-import com.safetyNet.safetyNetAlert.AgeCalculator;
-import com.safetyNet.safetyNetAlert.SafetyNetData;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class MedicalRecords {
+
+    private static final Logger logger = LogManager.getLogger(MedicalRecords.class);
 
     private String lastName;
     private String firstName;
@@ -77,11 +77,11 @@ public class MedicalRecords {
         this.age = age;
     }
 
-    public void updatemedicalexceptFirstNameLastName(String birthdate, List<String> allergies, List<String> medications,int age){
+    public void updatemedicalexceptFirstNameLastName(String birthdate, List<String> allergies, List<String> medications, int age) {
         this.birthdate = birthdate;
         this.allergies = allergies;
         this.medications = medications;
-        this.age= age;
+        this.age = age;
     }
 
     @Override

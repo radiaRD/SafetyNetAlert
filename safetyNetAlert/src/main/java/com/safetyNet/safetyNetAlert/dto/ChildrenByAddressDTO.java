@@ -1,14 +1,19 @@
 package com.safetyNet.safetyNetAlert.dto;
 
+import com.safetyNet.safetyNetAlert.controller.SafetyNetController;
 import com.safetyNet.safetyNetAlert.model.MedicalRecords;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ChildrenByAddressDTO {
+    private static final Logger logger = LogManager.getLogger(ChildrenByAddressDTO.class);
     private String lastName;
     private String firstName;
     private int age;
     private MedicalRecords medicalRecords;
 
-    public ChildrenByAddressDTO(){}
+    public ChildrenByAddressDTO() {
+    }
 
     public ChildrenByAddressDTO(String lastName, String firstName, int age, MedicalRecords medicalRecords) {
         this.lastName = lastName;

@@ -2,12 +2,13 @@ package com.safetyNet.safetyNetAlert.dto;
 
 import com.safetyNet.safetyNetAlert.model.MedicalRecords;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.util.List;
 
 public class PersonInfoDTO {
 
+    private static final Logger logger = LogManager.getLogger(PersonInfoDTO.class);
 
     private String lastName;
     private String firstName;

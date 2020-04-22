@@ -2,10 +2,15 @@ package com.safetyNet.safetyNetAlert.dto;
 
 import com.safetyNet.safetyNetAlert.model.FireStation;
 import com.safetyNet.safetyNetAlert.model.MedicalRecords;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
 public class PersonsByAddressDTO {
+
+    private static final Logger logger = LogManager.getLogger(PersonsByAddressDTO.class);
+
     private String lastName;
     private String phone;
     private int age;
@@ -15,7 +20,7 @@ public class PersonsByAddressDTO {
     private FireStation station;
 
 
-    public PersonsByAddressDTO(){
+    public PersonsByAddressDTO() {
 
     }
 

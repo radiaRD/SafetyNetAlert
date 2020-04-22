@@ -7,26 +7,20 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @RestController
 public class PersonController {
-
+    private static final Logger logger = LogManager.getLogger(PersonController.class);
     @Autowired
     private SafetyNetData data;
 
-    private Persons getPersonByLastName(String lastName, String firstName) {
-        for (Persons person : data.getPersons()) {
-            if (person.getLastName() == lastName && person.getFirstName() == firstName) return person;
-        }
-        return null;
-    }
 
-    private void addPerson(Persons person) {
+    public void addPerson(Persons person) {
         this.data.getPersons().add(person);
     }
 
-    private List<Persons> getAllPersons() {
-        return this.data.getPersons();
-    }
 
     private void deletePerson(String lastName, String firstName) {
         data.getPersons().removeIf(u -> u.getLastName().equals(lastName) && u.getFirstName().equals(firstName));
@@ -40,7 +34,7 @@ public class PersonController {
 
             if (p.getLastName().equals(lastName) && p.getFirstName().equals(firstName)) {
 
-                p.updatepersonsexceptFirstNameLastName(person.getAddress(),person.getCity(),person.getZip(),person.getPhone(),person.getEmail(),person.getStation(),person.getMedicalRecords());
+                p.updatepersonsexceptFirstNameLastName(person.getAddress(), person.getCity(), person.getZip(), person.getPhone(), person.getEmail(), person.getStation(), person.getMedicalRecords());
 
                 return;
             }
@@ -48,18 +42,20 @@ public class PersonController {
     }
 
     @RequestMapping(value = "/persons", method = RequestMethod.POST)
-    void addPersons(@RequestBody Persons person) {
+    public void addPersons(@RequestBody Persons person) {
+        logger.info(" add person");
         this.addPerson(person);
     }
 
     @RequestMapping(value = "/persons/{lastName}/{firstName}", method = RequestMethod.DELETE)
     public void deletepersons(@PathVariable String lastName, @PathVariable String firstName) {
+        logger.info("delete person by last name and first name");
         this.deletePerson(lastName, firstName);
     }
 
     @RequestMapping(value = "/persons/{lastName}/{firstName}", method = RequestMethod.PUT)
     public void updatePersons(@PathVariable String lastName, @PathVariable String firstName, @RequestBody Persons person) {
-
+        logger.info("update person by last name and first name");
         this.updatePerson(lastName, firstName, person);
 
     }

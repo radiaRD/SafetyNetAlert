@@ -3,12 +3,19 @@ package com.safetyNet.safetyNetAlert.model;
 
 import com.safetyNet.safetyNetAlert.SafetyNetData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class FireStation {
-    private String address;
-    private int station;
+
+    private static final Logger logger = LogManager.getLogger(FireStation.class);
+
     @Autowired
     private SafetyNetData data;
+
+    private String address;
+    private int station;
+
 
     public FireStation() {
     }

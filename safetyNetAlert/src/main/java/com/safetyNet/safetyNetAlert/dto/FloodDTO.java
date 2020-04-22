@@ -1,12 +1,14 @@
 package com.safetyNet.safetyNetAlert.dto;
 
 
-import com.safetyNet.safetyNetAlert.model.FireStation;
-import com.safetyNet.safetyNetAlert.model.Persons;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
 public class FloodDTO {
+
+    private static final Logger logger = LogManager.getLogger(FloodDTO.class);
 
     private String address;
     private List<FloodByStationDTO> floodList;

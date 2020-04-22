@@ -1,10 +1,13 @@
 package com.safetyNet.safetyNetAlert.dto;
 
 import com.safetyNet.safetyNetAlert.model.MedicalRecords;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
 public class FloodByStationDTO {
+    private static final Logger logger = LogManager.getLogger(FloodByStationDTO.class);
 
     private String lastName;
     private String phone;
@@ -13,9 +16,10 @@ public class FloodByStationDTO {
     private List<String> allergies;
     private List<String> medications;
 
-public FloodByStationDTO(){
+    public FloodByStationDTO() {
 
-}
+    }
+
     public FloodByStationDTO(String lastName, String phone, int age, MedicalRecords medicalRecords, List<String> allergies, List<String> medications) {
         this.lastName = lastName;
         this.phone = phone;

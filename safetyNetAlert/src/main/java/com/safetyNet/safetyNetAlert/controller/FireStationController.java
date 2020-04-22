@@ -5,9 +5,13 @@ import com.safetyNet.safetyNetAlert.model.FireStation;
 import com.safetyNet.safetyNetAlert.model.Persons;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @RestController
 public class FireStationController {
+
+    private static final Logger logger = LogManager.getLogger(FireStationController.class);
 
     @Autowired
     private SafetyNetData data;
@@ -15,7 +19,8 @@ public class FireStationController {
     private void addFireStation(FireStation fireStation) {
         this.data.getFireStations().add(fireStation);
     }
-    private void deleteStation(Persons persons){
+
+    private void deleteStation(Persons persons) {
         persons.setStation(null);
         persons.setAddress(null);
     }
@@ -23,7 +28,7 @@ public class FireStationController {
     private void deleteAddressFirestation(String address, int station, Persons person) {
         data.getFireStations().removeIf(u -> u.getAddress().equals(address) && u.getStation() == (station));
         if (person.getStation().getStation() == (station) && person.getAddress().equals(address)) {
-          this.deleteStation(person);
+            this.deleteStation(person);
         }
 
     }
@@ -31,7 +36,7 @@ public class FireStationController {
     private void deleteFirestation(int station, Persons person) {
         data.getFireStations().removeIf(u -> u.getStation() == (station));
         if (person.getStation().getStation() == (station)) {
-          this.deleteStation(person);
+            this.deleteStation(person);
         }
         //       data.getPersons().removeIf(e ->e.getStation().getStation() == (station));
     }
@@ -59,11 +64,13 @@ public class FireStationController {
 
     @RequestMapping(value = "/fireStation", method = RequestMethod.POST)
     void addfireStations(@RequestBody FireStation fireStation) {
+        logger.info(" add a fire station");
         this.addFireStation(fireStation);
     }
 
     @RequestMapping(value = "/fireStation/{address}/{station}", method = RequestMethod.DELETE)
     public void deleteAddressFireStations(@PathVariable String address, @PathVariable int station) {
+        logger.info("delete fire station with an address");
         for (Persons person : data.getPersons()) {
             this.deleteAddressFirestation(address, station, person);
         }
@@ -71,6 +78,7 @@ public class FireStationController {
 
     @RequestMapping(value = "/fireStation/{station}", method = RequestMethod.DELETE)
     public void deleteFireStations(@PathVariable int station) {
+        logger.info("delete list of fire station with station number");
         for (Persons person : data.getPersons()) {
             this.deleteFirestation(station, person);
         }
@@ -78,6 +86,7 @@ public class FireStationController {
 
     @RequestMapping(value = "/fireStation/{address}", method = RequestMethod.PUT)
     public void updateFireStations(@PathVariable String address, @RequestBody FireStation fireStation) {
+        logger.info("update fire station by address");
         for (Persons person : data.getPersons()) {
             this.updateFirestation(address, fireStation, person);
         }

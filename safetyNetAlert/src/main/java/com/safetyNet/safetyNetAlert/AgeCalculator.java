@@ -1,20 +1,23 @@
 package com.safetyNet.safetyNetAlert;
 
 import com.safetyNet.safetyNetAlert.model.MedicalRecords;
-import org.springframework.beans.factory.annotation.Autowired;
+
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class AgeCalculator {
 
-    LocalDate currentDate = LocalDate.now();
-    MedicalRecords medicalRecords = new MedicalRecords();
-    String birthDate = medicalRecords.getBirthdate();
-    @Autowired
-    int age;
+    private static final Logger logger = LogManager.getLogger(AgeCalculator.class);
+
+    private LocalDate currentDate = LocalDate.now();
+    private MedicalRecords medicalRecords = new MedicalRecords();
+    private String birthDate = medicalRecords.getBirthdate();
+    private int age;
 
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");

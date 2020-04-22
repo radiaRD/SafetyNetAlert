@@ -1,14 +1,13 @@
 package com.safetyNet.safetyNetAlert.dto;
 
 
-import com.safetyNet.safetyNetAlert.model.Persons;
-import org.json.simple.parser.ParseException;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.stream.Collectors;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class UserDTO {
+
+    private static final Logger logger = LogManager.getLogger(UserDTO.class);
+
     private String lastName;
     private String firstName;
     private String address;
@@ -17,7 +16,6 @@ public class UserDTO {
 
     public UserDTO() {
     }
-
 
 
     public UserDTO(String firstName, String lastName, String address, String phone) {
@@ -59,7 +57,6 @@ public class UserDTO {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
 
 
     @Override

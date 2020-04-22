@@ -2,7 +2,12 @@ package com.safetyNet.safetyNetAlert.dto;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class UsersCountDTO {
+
+    private static final Logger logger = LogManager.getLogger(UsersCountDTO.class);
 
     private List<UserDTO> userList;
     private long countChildren;

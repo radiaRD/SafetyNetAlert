@@ -1,6 +1,7 @@
 package com.safetyNet.safetyNetAlert;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.safetyNet.safetyNetAlert.controller.SafetyNetController;
 import com.safetyNet.safetyNetAlert.model.FireStation;
 import com.safetyNet.safetyNetAlert.model.MedicalRecords;
 import com.safetyNet.safetyNetAlert.model.Persons;
@@ -16,16 +17,20 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Component
 public class SafetyNetData {
+
+    private static final Logger logger = LogManager.getLogger(SafetyNetData.class);
 
     private List<Persons> persons = new ArrayList<>();
     private List<MedicalRecords> medicalRecords = new ArrayList<>();
     private List<FireStation> fireStations = new ArrayList<>();
     private int age;
 
-    private List<Persons> readJsonFilePersons() throws IOException, ParseException {
+    public List<Persons> readJsonFilePersons() throws IOException, ParseException {
         ReadDataFromJsonFile data = new ReadDataFromJsonFile();
         JSONParser parser = new JSONParser();
         Object obj = parser.parse(data.readJsonFileData());
@@ -40,7 +45,7 @@ public class SafetyNetData {
         return listePerson;
     }
 
-    private List<FireStation> readJsonFileStation() throws IOException, ParseException {
+    public List<FireStation> readJsonFileStation() throws IOException, ParseException {
         ReadDataFromJsonFile data = new ReadDataFromJsonFile();
         JSONParser parser = new JSONParser();
         Object obj = parser.parse(data.readJsonFileData());
@@ -57,7 +62,7 @@ public class SafetyNetData {
     }
 
 
-    private List<MedicalRecords> readJsonFileMedicalrecords() throws IOException, ParseException {
+    public List<MedicalRecords> readJsonFileMedicalrecords() throws IOException, ParseException {
         ReadDataFromJsonFile data = new ReadDataFromJsonFile();
         JSONParser parser = new JSONParser();
         Object obj = parser.parse(data.readJsonFileData());
@@ -79,8 +84,10 @@ public class SafetyNetData {
             this.readJsonFilePersons();
             this.readJsonFileMedicalrecords();
         } catch (IOException e) {
+            logger.error("Error initializing lists persons, firestation and medicalrecords");
             e.printStackTrace();
         } catch (ParseException e) {
+            logger.error("Error initializing lists persons, firestation and medicalrecords");
             e.printStackTrace();
         }
     }
@@ -111,6 +118,15 @@ public class SafetyNetData {
         }
     }
 
+    public void dataEmpty() throws IOException, ParseException {
+        persons.clear();
+        fireStations.clear();
+        medicalRecords.clear();
+        this.readJsonFilePersons();
+        this.readJsonFileStation();
+        this.readJsonFileMedicalrecords();
+        this.linkList();
+    }
 
     public List<Persons> getPersons() {
         return persons;
