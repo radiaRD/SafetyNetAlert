@@ -1,6 +1,5 @@
 package com.safetyNet.safetyNetAlert.controller;
 
-import com.safetyNet.safetyNetAlert.SafetyNetAlertApplication;
 import com.safetyNet.safetyNetAlert.SafetyNetData;
 import com.safetyNet.safetyNetAlert.dto.*;
 import com.safetyNet.safetyNetAlert.model.FireStation;
@@ -56,8 +55,8 @@ public class SafetyNetController {
 
     @RequestMapping(value = "/fireStation/{station}", method = GET)
     @ResponseBody
-    public UsersCountDTO getUserByStationNumber(@PathVariable int station) throws IOException, ParseException {
-        logger.info("get list of persons covered by fire station");
+    public UsersCountDTO getPersonsByStationNumber(@PathVariable int station) throws IOException, ParseException {
+        logger.info("get list of persons covered by fire station : " + station);
         List<FireStation> fireStations = getFirestations();
 
         List<FireStation> fireStation2 = fireStations.stream()    // converting the list to stream
@@ -89,7 +88,7 @@ public class SafetyNetController {
     @RequestMapping(value = "/communityEmail/{city}", method = GET)
     @ResponseBody
     public Set<String> getEmailByCity(@PathVariable("city") String city) throws IOException, ParseException {
-        logger.info("get list of emails persons by city ");
+        logger.info("get list of emails persons by city : " +city);
         List<Persons> persons = getPersons();
         List<Persons> persons1 = persons.stream()
                 .filter(f -> f.getCity().equals(city))
@@ -105,7 +104,7 @@ public class SafetyNetController {
     @RequestMapping(value = "/phoneAlert/{station}", method = GET)
     @ResponseBody
     public Set<String> getPhoneNumberByStation(@PathVariable int station) throws IOException, ParseException {
-        logger.info("get list of phone numbers by station number ");
+        logger.info("get list of phone numbers by station number : "+ station);
         List<FireStation> fireStations = data.getFireStations();
 
         List<FireStation> fireStation2 = fireStations.stream()
@@ -130,7 +129,7 @@ public class SafetyNetController {
     @RequestMapping(value = "/personInfo/{firstName}/{lastName}", method = GET)
     @ResponseBody
     public List<PersonInfoDTO> getpersonInfoByName(@PathVariable String lastName) throws IOException, ParseException {
-        logger.info("get information by first name and last name ");
+        logger.info("get information by last name : "+ lastName);
         List<Persons> resultOut = getPersons().stream()
                 .filter(f -> f.getLastName().equals(lastName))
                 .collect(Collectors.toList());
@@ -144,7 +143,7 @@ public class SafetyNetController {
     @RequestMapping(value = "/fire/{address}", method = GET)
     @ResponseBody
     public List<PersonsByAddressDTO> getPersonsByAddress(@PathVariable String address) throws IOException, ParseException {
-        logger.info("get list persons and fire station number by address ");
+        logger.info("get list persons and fire station number by address : " + address);
         List<FireStation> fireStations = data.getFireStations();
         List<FireStation> fireStation2 = fireStations.stream()
                 .filter(f -> f.getAddress().equals(address))
@@ -166,17 +165,17 @@ public class SafetyNetController {
     @RequestMapping(value = "/childAlert/{address}", method = GET)
     @ResponseBody
     public List<ChildrenByAddressDTO> getChildrenByAddress(@PathVariable String address) throws IOException, ParseException {
-        logger.info("get list of children by address");
+        logger.info("get list of children by address : " + address);
         List<Persons> person = data.getPersons();
         List<Persons> resultOut = person.stream()
                 .filter(f -> f.getAddress().equals(address) && 18 > f.getMedicalRecords().getAge())
                 .collect(Collectors.toList());
-        Set<String> lastN =
+        Set<String> lastName =
                 resultOut.stream()
                         .map(Persons::getLastName)
                         .collect(Collectors.toSet());
         List<Persons> resultOut1 = getPersons().stream()
-                .filter(e -> lastN.contains(e.getLastName()))
+                .filter(e -> lastName.contains(e.getLastName()))
                 .collect(Collectors.toList());
 
         ModelMapper modelMapper = new ModelMapper();
@@ -187,7 +186,7 @@ public class SafetyNetController {
     @GetMapping("/flood/stations")
     @ResponseBody
     public List<FloodDTO> floodByStation(@RequestParam(value = "stations") List<Integer> stations) throws IOException, ParseException {
-        logger.info("get list of residents by stations numbers");
+        logger.info("get list of residents by stations numbers : "+ stations);
         List<FloodDTO> flood = new ArrayList<>();
         for (int station : stations) {
             List<FireStation> fireStations = data.getFireStations();

@@ -1,7 +1,6 @@
 package com.safetyNet.safetyNetAlert;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.safetyNet.safetyNetAlert.controller.SafetyNetController;
 import com.safetyNet.safetyNetAlert.model.FireStation;
 import com.safetyNet.safetyNetAlert.model.MedicalRecords;
 import com.safetyNet.safetyNetAlert.model.Persons;
@@ -122,9 +121,7 @@ public class SafetyNetData {
         persons.clear();
         fireStations.clear();
         medicalRecords.clear();
-        this.readJsonFilePersons();
-        this.readJsonFileStation();
-        this.readJsonFileMedicalrecords();
+        this.initData();
         this.linkList();
     }
 

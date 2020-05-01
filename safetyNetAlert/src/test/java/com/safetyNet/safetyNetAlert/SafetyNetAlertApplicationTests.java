@@ -46,11 +46,6 @@ class SafetyNetAlertApplicationTests {
     }
 
     @Test
-    void contextLoads() throws Exception {
-
-    }
-
-    @Test
     void getPersonsTest() throws Exception {
 
         this.mockMvc.perform(get("/persons")).andDo(print()).andExpect(status().isOk())

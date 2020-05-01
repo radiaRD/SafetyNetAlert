@@ -17,7 +17,6 @@ class ReadDataFromJsonFile {
 
     private String path = "D:\\projetoc4\\safetyNetAlert\\src\\main\\resources\\data.json";
 
-    @Autowired
     public String readJsonFileData() throws IOException, ParseException {
         JSONParser parser = new JSONParser();
         Object obj = parser.parse(new FileReader(path));

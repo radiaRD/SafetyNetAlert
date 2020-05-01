@@ -5,7 +5,6 @@ import com.safetyNet.safetyNetAlert.model.Persons;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 public class PersonController {
     private static final Logger logger = LogManager.getLogger(PersonController.class);
     @Autowired
-    private SafetyNetData data;
+   private SafetyNetData data;
 
 
     public void addPerson(Persons person) {
@@ -49,14 +48,14 @@ public class PersonController {
 
     @RequestMapping(value = "/persons/{lastName}/{firstName}", method = RequestMethod.DELETE)
     public void deletepersons(@PathVariable String lastName, @PathVariable String firstName) {
-        logger.info("delete person by last name and first name");
-        this.deletePerson(lastName, firstName);
+        logger.info("delete person by last name and first name : " + lastName + "\t" +firstName);
+     this.deletePerson(lastName, firstName);
     }
 
     @RequestMapping(value = "/persons/{lastName}/{firstName}", method = RequestMethod.PUT)
     public void updatePersons(@PathVariable String lastName, @PathVariable String firstName, @RequestBody Persons person) {
-        logger.info("update person by last name and first name");
-        this.updatePerson(lastName, firstName, person);
+        logger.info("update person by last name and first name : " +lastName +"\t" + firstName);
+      this.updatePerson(lastName, firstName, person);
 
     }
 

@@ -60,7 +60,7 @@ public class MedicalRecordsController {
 
     @RequestMapping(value = "/medicalRecords/{firstName}/{lastName}", method = RequestMethod.DELETE)
     public void deleteMedicalRecordsByName(@PathVariable String firstName, @PathVariable String lastName) {
-        logger.info("delete a medical record by last name and first name");
+        logger.info("delete a medical record : "+ firstName + "\t" + lastName);
         for (Persons person : data.getPersons()) {
             this.deleteMedicalRecordByName(firstName, lastName, person);
         }
@@ -68,7 +68,7 @@ public class MedicalRecordsController {
 
     @RequestMapping(value = "/medicalRecords/{firstName}/{lastName}", method = RequestMethod.PUT)
     public void updateMedicalrecords(@PathVariable String firstName, @PathVariable String lastName, @RequestBody MedicalRecords medicalRecords) {
-        logger.info("update a medical record by last name and first name");
+        logger.info("update a medical record : " + lastName + "\t" + firstName);
         for (Persons person : data.getPersons()) {
             this.updateMedicalrecord(firstName, lastName, medicalRecords);
             this.update(firstName, lastName, medicalRecords);

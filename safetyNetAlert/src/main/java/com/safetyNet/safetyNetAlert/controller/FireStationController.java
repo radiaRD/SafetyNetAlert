@@ -38,7 +38,7 @@ public class FireStationController {
         if (person.getStation().getStation() == (station)) {
             this.deleteStation(person);
         }
-        //       data.getPersons().removeIf(e ->e.getStation().getStation() == (station));
+
     }
 
 
@@ -70,7 +70,7 @@ public class FireStationController {
 
     @RequestMapping(value = "/fireStation/{address}/{station}", method = RequestMethod.DELETE)
     public void deleteAddressFireStations(@PathVariable String address, @PathVariable int station) {
-        logger.info("delete fire station with an address");
+        logger.info("delete an address : " + address +"\t" + station);
         for (Persons person : data.getPersons()) {
             this.deleteAddressFirestation(address, station, person);
         }
@@ -78,7 +78,7 @@ public class FireStationController {
 
     @RequestMapping(value = "/fireStation/{station}", method = RequestMethod.DELETE)
     public void deleteFireStations(@PathVariable int station) {
-        logger.info("delete list of fire station with station number");
+        logger.info("delete a fire station : " + station);
         for (Persons person : data.getPersons()) {
             this.deleteFirestation(station, person);
         }
@@ -86,7 +86,7 @@ public class FireStationController {
 
     @RequestMapping(value = "/fireStation/{address}", method = RequestMethod.PUT)
     public void updateFireStations(@PathVariable String address, @RequestBody FireStation fireStation) {
-        logger.info("update fire station by address");
+        logger.info("update fire station by address : " + address);
         for (Persons person : data.getPersons()) {
             this.updateFirestation(address, fireStation, person);
         }
