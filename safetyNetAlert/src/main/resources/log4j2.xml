@@ -4,7 +4,9 @@
         <Property name="LOG_PATTERN">%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} %p %m%n</Property>
     </Properties>
     <Appenders>
-
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </Console>
 
         <RollingFile name="appLog"
                      fileName="D:\projetoc4\safetyNetAlert\log\application.log"
@@ -20,8 +22,8 @@
     <Loggers>
         <Logger name="com.safetyNet.safetyNetAlert" level="info" additivity="false">
             <AppenderRef ref="appLog" />
+            <AppenderRef ref="Console" />
         </Logger>
-        <!--<AppenderRef ref="Console" />    -->
         <Root level="info">
             <AppenderRef ref="appLog" />
         </Root>

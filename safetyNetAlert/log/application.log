@@ -1,0 +1,132 @@
+2020-05-02T19:21:14.663+0200 INFO Initializing SafetyNetAlert
+2020-05-02T19:21:15.330+0200 INFO Starting SafetyNetAlertApplication on DESKTOP-10MOG2F with PID 50688 (D:\projetoc4\safetyNetAlert\target\classes started by USER in D:\projetoc4\safetyNetAlert)
+2020-05-02T19:21:15.344+0200 INFO No active profile set, falling back to default profiles: default
+2020-05-02T19:21:17.593+0200 INFO Tomcat initialized with port(s): 8080 (http)
+2020-05-02T19:21:17.710+0200 INFO Initializing ProtocolHandler ["http-nio-8080"]
+2020-05-02T19:21:17.711+0200 INFO Starting service [Tomcat]
+2020-05-02T19:21:17.712+0200 INFO Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-05-02T19:21:18.096+0200 INFO Initializing Spring embedded WebApplicationContext
+2020-05-02T19:21:18.097+0200 INFO Root WebApplicationContext: initialization completed in 2665 ms
+2020-05-02T19:21:18.514+0200 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-02T19:21:18.914+0200 INFO Exposing 3 endpoint(s) beneath base path '/actuator'
+2020-05-02T19:21:19.088+0200 INFO Starting ProtocolHandler ["http-nio-8080"]
+2020-05-02T19:21:19.118+0200 INFO Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-02T19:21:19.121+0200 INFO Started SafetyNetAlertApplication in 4.286 seconds (JVM running for 7.565)
+2020-05-02T19:21:48.479+0200 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-02T19:21:48.481+0200 INFO Initializing Servlet 'dispatcherServlet'
+2020-05-02T19:21:48.490+0200 INFO Completed initialization in 8 ms
+2020-05-02T19:21:48.519+0200 INFO get list of persons
+2020-05-02T19:26:23.418+0200 INFO Initializing SafetyNetAlert
+2020-05-02T19:26:24.167+0200 INFO Starting SafetyNetAlertApplication on DESKTOP-10MOG2F with PID 22228 (D:\projetoc4\safetyNetAlert\target\classes started by USER in D:\projetoc4\safetyNetAlert)
+2020-05-02T19:26:24.173+0200 INFO No active profile set, falling back to default profiles: default
+2020-05-02T19:26:26.397+0200 INFO Tomcat initialized with port(s): 8080 (http)
+2020-05-02T19:26:26.428+0200 INFO Initializing ProtocolHandler ["http-nio-8080"]
+2020-05-02T19:26:26.429+0200 INFO Starting service [Tomcat]
+2020-05-02T19:26:26.430+0200 INFO Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-05-02T19:26:26.602+0200 INFO Initializing Spring embedded WebApplicationContext
+2020-05-02T19:26:26.602+0200 INFO Root WebApplicationContext: initialization completed in 2307 ms
+2020-05-02T19:26:27.203+0200 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-02T19:26:27.501+0200 INFO Exposing 3 endpoint(s) beneath base path '/actuator'
+2020-05-02T19:26:27.709+0200 INFO Starting ProtocolHandler ["http-nio-8080"]
+2020-05-02T19:26:27.742+0200 INFO Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-02T19:26:27.747+0200 INFO Started SafetyNetAlertApplication in 4.147 seconds (JVM running for 6.918)
+2020-05-02T19:26:58.782+0200 INFO Initializing SafetyNetAlert
+2020-05-02T19:26:59.380+0200 INFO Starting SafetyNetAlertApplication on DESKTOP-10MOG2F with PID 25360 (D:\projetoc4\safetyNetAlert\target\classes started by USER in D:\projetoc4\safetyNetAlert)
+2020-05-02T19:26:59.385+0200 INFO No active profile set, falling back to default profiles: default
+2020-05-02T19:27:01.666+0200 INFO Tomcat initialized with port(s): 8080 (http)
+2020-05-02T19:27:01.703+0200 INFO Initializing ProtocolHandler ["http-nio-8080"]
+2020-05-02T19:27:01.704+0200 INFO Starting service [Tomcat]
+2020-05-02T19:27:01.706+0200 INFO Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-05-02T19:27:01.916+0200 INFO Initializing Spring embedded WebApplicationContext
+2020-05-02T19:27:01.917+0200 INFO Root WebApplicationContext: initialization completed in 2449 ms
+2020-05-02T19:27:02.649+0200 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-02T19:27:02.978+0200 INFO Exposing 3 endpoint(s) beneath base path '/actuator'
+2020-05-02T19:27:03.203+0200 INFO Starting ProtocolHandler ["http-nio-8080"]
+2020-05-02T19:27:03.239+0200 INFO Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-02T19:27:03.244+0200 INFO Started SafetyNetAlertApplication in 4.316 seconds (JVM running for 6.86)
+2020-05-02T19:28:06.863+0200 INFO Initializing SafetyNetAlert
+2020-05-02T19:28:07.416+0200 INFO Starting SafetyNetAlertApplication on DESKTOP-10MOG2F with PID 53548 (D:\projetoc4\safetyNetAlert\target\classes started by USER in D:\projetoc4\safetyNetAlert)
+2020-05-02T19:28:07.435+0200 INFO No active profile set, falling back to default profiles: default
+2020-05-02T19:28:09.533+0200 INFO Tomcat initialized with port(s): 8080 (http)
+2020-05-02T19:28:09.560+0200 INFO Initializing ProtocolHandler ["http-nio-8080"]
+2020-05-02T19:28:09.561+0200 INFO Starting service [Tomcat]
+2020-05-02T19:28:09.562+0200 INFO Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-05-02T19:28:09.738+0200 INFO Initializing Spring embedded WebApplicationContext
+2020-05-02T19:28:09.739+0200 INFO Root WebApplicationContext: initialization completed in 2250 ms
+2020-05-02T19:28:10.256+0200 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-02T19:28:10.661+0200 INFO Exposing 3 endpoint(s) beneath base path '/actuator'
+2020-05-02T19:28:10.892+0200 INFO Starting ProtocolHandler ["http-nio-8080"]
+2020-05-02T19:28:10.934+0200 INFO Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-02T19:28:10.937+0200 INFO Started SafetyNetAlertApplication in 3.937 seconds (JVM running for 6.745)
+2020-05-02T19:28:42.819+0200 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-02T19:28:42.819+0200 INFO Initializing Servlet 'dispatcherServlet'
+2020-05-02T19:28:42.829+0200 INFO Completed initialization in 9 ms
+2020-05-02T19:31:21.963+0200 INFO Initializing SafetyNetAlert
+2020-05-02T19:31:22.758+0200 INFO Starting SafetyNetAlertApplication on DESKTOP-10MOG2F with PID 48148 (D:\projetoc4\safetyNetAlert\target\classes started by USER in D:\projetoc4\safetyNetAlert)
+2020-05-02T19:31:22.763+0200 INFO No active profile set, falling back to default profiles: default
+2020-05-02T19:31:24.813+0200 INFO Tomcat initialized with port(s): 8080 (http)
+2020-05-02T19:31:24.841+0200 INFO Initializing ProtocolHandler ["http-nio-8080"]
+2020-05-02T19:31:24.842+0200 INFO Starting service [Tomcat]
+2020-05-02T19:31:24.843+0200 INFO Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-05-02T19:31:25.118+0200 INFO Initializing Spring embedded WebApplicationContext
+2020-05-02T19:31:25.118+0200 INFO Root WebApplicationContext: initialization completed in 2281 ms
+2020-05-02T19:31:25.609+0200 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-02T19:31:25.986+0200 INFO Exposing 3 endpoint(s) beneath base path '/actuator'
+2020-05-02T19:31:26.351+0200 INFO Starting ProtocolHandler ["http-nio-8080"]
+2020-05-02T19:31:26.407+0200 INFO Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-02T19:31:26.411+0200 INFO Started SafetyNetAlertApplication in 4.297 seconds (JVM running for 6.863)
+2020-05-02T19:32:20.226+0200 INFO Initializing SafetyNetAlert
+2020-05-02T19:32:20.976+0200 INFO Starting SafetyNetAlertApplication on DESKTOP-10MOG2F with PID 43724 (D:\projetoc4\safetyNetAlert\target\classes started by USER in D:\projetoc4\safetyNetAlert)
+2020-05-02T19:32:20.980+0200 INFO No active profile set, falling back to default profiles: default
+2020-05-02T19:32:23.035+0200 INFO Tomcat initialized with port(s): 8080 (http)
+2020-05-02T19:32:23.077+0200 INFO Initializing ProtocolHandler ["http-nio-8080"]
+2020-05-02T19:32:23.087+0200 INFO Starting service [Tomcat]
+2020-05-02T19:32:23.088+0200 INFO Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-05-02T19:32:23.331+0200 INFO Initializing Spring embedded WebApplicationContext
+2020-05-02T19:32:23.331+0200 INFO Root WebApplicationContext: initialization completed in 2248 ms
+2020-05-02T19:32:23.892+0200 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-02T19:32:24.274+0200 INFO Exposing 3 endpoint(s) beneath base path '/actuator'
+2020-05-02T19:32:24.607+0200 INFO Starting ProtocolHandler ["http-nio-8080"]
+2020-05-02T19:32:24.645+0200 INFO Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-02T19:32:24.649+0200 INFO Started SafetyNetAlertApplication in 4.256 seconds (JVM running for 6.891)
+2020-05-02T19:32:30.736+0200 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-02T19:32:30.736+0200 INFO Initializing Servlet 'dispatcherServlet'
+2020-05-02T19:32:30.743+0200 INFO Completed initialization in 7 ms
+2020-05-02T19:32:30.774+0200 INFO get list of persons
+2020-05-02T19:34:21.816+0200 INFO Initializing SafetyNetAlert
+2020-05-02T19:34:22.407+0200 INFO Starting SafetyNetAlertApplication on DESKTOP-10MOG2F with PID 28428 (D:\projetoc4\safetyNetAlert\target\classes started by USER in D:\projetoc4\safetyNetAlert)
+2020-05-02T19:34:22.413+0200 INFO No active profile set, falling back to default profiles: default
+2020-05-02T19:34:24.788+0200 INFO Tomcat initialized with port(s): 8080 (http)
+2020-05-02T19:34:24.818+0200 INFO Initializing ProtocolHandler ["http-nio-8080"]
+2020-05-02T19:34:24.819+0200 INFO Starting service [Tomcat]
+2020-05-02T19:34:24.820+0200 INFO Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-05-02T19:34:25.021+0200 INFO Initializing Spring embedded WebApplicationContext
+2020-05-02T19:34:25.022+0200 INFO Root WebApplicationContext: initialization completed in 2519 ms
+2020-05-02T19:34:25.712+0200 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-02T19:34:26.054+0200 INFO Exposing 3 endpoint(s) beneath base path '/actuator'
+2020-05-02T19:34:26.276+0200 INFO Starting ProtocolHandler ["http-nio-8080"]
+2020-05-02T19:34:26.309+0200 INFO Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-02T19:34:26.314+0200 INFO Started SafetyNetAlertApplication in 4.358 seconds (JVM running for 6.833)
+2020-05-02T19:34:50.993+0200 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-02T19:34:50.993+0200 INFO Initializing Servlet 'dispatcherServlet'
+2020-05-02T19:34:51.004+0200 INFO Completed initialization in 11 ms
+2020-05-02T19:34:51.035+0200 INFO get list of persons
+2020-05-02T19:35:51.587+0200 INFO Initializing SafetyNetAlert
+2020-05-02T19:35:52.145+0200 INFO Starting SafetyNetAlertApplication on DESKTOP-10MOG2F with PID 18032 (D:\projetoc4\safetyNetAlert\target\classes started by USER in D:\projetoc4\safetyNetAlert)
+2020-05-02T19:35:52.149+0200 INFO No active profile set, falling back to default profiles: default
+2020-05-02T19:35:54.326+0200 INFO Tomcat initialized with port(s): 8080 (http)
+2020-05-02T19:35:54.361+0200 INFO Initializing ProtocolHandler ["http-nio-8080"]
+2020-05-02T19:35:54.362+0200 INFO Starting service [Tomcat]
+2020-05-02T19:35:54.363+0200 INFO Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-05-02T19:35:54.511+0200 INFO Initializing Spring embedded WebApplicationContext
+2020-05-02T19:35:54.511+0200 INFO Root WebApplicationContext: initialization completed in 2271 ms
+2020-05-02T19:35:55.015+0200 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-02T19:35:55.801+0200 INFO Exposing 3 endpoint(s) beneath base path '/actuator'
+2020-05-02T19:35:56.033+0200 INFO Starting ProtocolHandler ["http-nio-8080"]
+2020-05-02T19:35:56.070+0200 INFO Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-02T19:35:56.075+0200 INFO Started SafetyNetAlertApplication in 4.35 seconds (JVM running for 6.875)
+2020-05-02T19:36:28.362+0200 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-02T19:36:28.363+0200 INFO Initializing Servlet 'dispatcherServlet'
+2020-05-02T19:36:28.372+0200 INFO Completed initialization in 9 ms
+2020-05-02T19:37:17.264+0200 INFO get information by last name : Boyd
+2020-05-02T19:37:17.264+0200 INFO get list of persons
